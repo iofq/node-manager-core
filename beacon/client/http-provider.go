@@ -192,7 +192,7 @@ func (p *BeaconHttpProvider) Beacon_Validators(ctx context.Context, stateId stri
 	if len(ids) > 0 {
 		query = fmt.Sprintf("?id=%s", strings.Join(ids, ","))
 	}
-	responseBody, status, err := p.getRequestWithoutTimeout(ctx, fmt.Sprintf(RequestValidatorsPath, stateId)+query)
+	responseBody, status, err := p.getRequest(ctx, fmt.Sprintf(RequestValidatorsPath, stateId)+query)
 	if err != nil {
 		return ValidatorsResponse{}, fmt.Errorf("error getting validators: %w", err)
 	}
